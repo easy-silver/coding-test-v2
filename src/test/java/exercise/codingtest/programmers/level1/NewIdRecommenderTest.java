@@ -62,4 +62,15 @@ class NewIdRecommenderTest {
         assertThat(recommender.changeEmptyToA("abcdefghijklmn.p")).isEqualTo("abcdefghijklmn.p");
     }
 
+    @DisplayName("길이가 16자 이상이면 첫 15개의 문자를 제외한 나머지 문자들을 모두 제거한다." +
+            "만약 제거 후 마침표(.)가 끝에 위치한다면 마침표(.) 문자를 제거한다.")
+    @Test
+    void step_6() {
+        assertThat(recommender.cutLessThan16("bat.y.abcdefghijklm")).isEqualTo("bat.y.abcdefghi");
+        assertThat(recommender.cutLessThan16("z-")).isEqualTo("z-");
+        assertThat(recommender.cutLessThan16("a")).isEqualTo("a");
+        assertThat(recommender.cutLessThan16("123_.def")).isEqualTo("123_.def");
+        assertThat(recommender.cutLessThan16("abcdefghijklmn.p")).isEqualTo("abcdefghijklmn");
+    }
+
 }

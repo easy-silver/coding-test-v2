@@ -40,4 +40,15 @@ public class NewIdRecommender {
         return userId.equals("") ? "a" : userId;
     }
 
+    //new_id의 길이가 16자 이상이면, new_id의 첫 15개의 문자를 제외한 나머지 문자들을 모두 제거합니다.
+    //만약 제거 후 마침표(.)가 new_id의 끝에 위치한다면 끝에 위치한 마침표(.) 문자를 제거합니다.
+    public String cutLessThan16(String userId) {
+
+        if (userId.length() > 15) {
+            userId = userId.substring(0, 15);
+            return userId.charAt(userId.length() - 1) == '.' ? userId.substring(0, userId.length() -1) : userId;
+        } else {
+            return userId;
+        }
+    }
 }
