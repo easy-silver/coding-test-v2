@@ -1,5 +1,7 @@
 package exercise.codingtest.programmers.level1;
 
+import org.springframework.util.StringUtils;
+
 /**
  * 2021 KAKAO BLIND RECRUITMENT
  * 신규 아이디 추천
@@ -20,6 +22,17 @@ public class NewIdRecommender {
     //3단계 new_id에서 마침표(.)가 2번 이상 연속된 부분을 하나의 마침표(.)로 치환합니다.
     public String changeDotOne(String userId) {
         return userId.replaceAll("\\.{2,}", ".");
+    }
+
+    //4단계 new_id에서 마침표(.)가 처음이나 끝에 위치한다면 제거합니다.
+    public String removeDotAtSide(String userId) {
+        if (userId.charAt(0) == '.') {
+            userId = userId.substring(1);
+        }
+        if (StringUtils.hasText(userId) && userId.charAt(userId.length() - 1) == '.') {
+            userId = userId.substring(0, userId.length() - 1);
+        }
+        return userId;
     }
 
 }

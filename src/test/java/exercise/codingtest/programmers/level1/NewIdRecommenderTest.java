@@ -42,4 +42,14 @@ class NewIdRecommenderTest {
         assertThat(recommender.changeDotOne("abcdefghijklmn.p")).isEqualTo("abcdefghijklmn.p");
     }
 
+    @DisplayName("4단계: 마침표(.)가 처음이나 끝에 위치한다면 제거한다")
+    @Test
+    void step_4() {
+        assertThat(recommender.removeDotAtSide(".bat.y.abcdefghijklm")).isEqualTo("bat.y.abcdefghijklm");
+        assertThat(recommender.removeDotAtSide("z-.")).isEqualTo("z-");
+        assertThat(recommender.removeDotAtSide(".")).isEqualTo("");
+        assertThat(recommender.removeDotAtSide("123_.def")).isEqualTo("123_.def");
+        assertThat(recommender.removeDotAtSide("abcdefghijklmn.p")).isEqualTo("abcdefghijklmn.p");
+    }
+
 }
