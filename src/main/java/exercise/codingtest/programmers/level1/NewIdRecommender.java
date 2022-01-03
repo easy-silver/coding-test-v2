@@ -17,4 +17,9 @@ public class NewIdRecommender {
         return userId.replaceAll("[^a-z0-9-_.]", "");
     }
 
+    //3단계 new_id에서 마침표(.)가 2번 이상 연속된 부분을 하나의 마침표(.)로 치환합니다.
+    public String changeDotOne(String userId) {
+        return userId.replaceAll("\\.{2,}", ".");
+    }
+
 }
