@@ -12,4 +12,9 @@ public class NewIdRecommender {
         return userId.toLowerCase();
     }
 
+    //2단계 new_id에서 알파벳 소문자, 숫자, 빼기(-), 밑줄(_), 마침표(.)를 제외한 모든 문자를 제거합니다.
+    public String removeSpecialCharacters(String userId) {
+        return userId.replaceAll("[^a-z0-9-_.]", "");
+    }
+
 }
