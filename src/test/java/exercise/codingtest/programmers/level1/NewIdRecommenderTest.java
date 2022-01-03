@@ -52,4 +52,14 @@ class NewIdRecommenderTest {
         assertThat(recommender.removeDotAtSide("abcdefghijklmn.p")).isEqualTo("abcdefghijklmn.p");
     }
 
+    @DisplayName("5단계 빈 문자열을 'a'로 대체한다")
+    @Test
+    void step_5() {
+        assertThat(recommender.changeEmptyToA("bat.y.abcdefghijklm")).isEqualTo("bat.y.abcdefghijklm");
+        assertThat(recommender.changeEmptyToA("z-.")).isEqualTo("z-.");
+        assertThat(recommender.changeEmptyToA("")).isEqualTo("a");
+        assertThat(recommender.changeEmptyToA("123_.def")).isEqualTo("123_.def");
+        assertThat(recommender.changeEmptyToA("abcdefghijklmn.p")).isEqualTo("abcdefghijklmn.p");
+    }
+
 }

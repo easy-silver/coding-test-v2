@@ -35,4 +35,9 @@ public class NewIdRecommender {
         return userId;
     }
 
+    //5단계 new_id가 빈 문자열이라면, new_id에 "a"를 대입합니다.
+    public String changeEmptyToA(String userId) {
+        return userId.equals("") ? "a" : userId;
+    }
+
 }
