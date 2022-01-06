@@ -34,14 +34,20 @@ class KeypadTest {
     @Test
     void must_right() {
         //given
-        int[] numbers = {3, 6, 9};
+        int[] numbers1 = {3, 6, 9};
+        int[] numbers2 = {3, 9};
+        int[] numbers3 = {9};
 
         //when
         Keypad keypad = new Keypad();
-        String answer = keypad.pressKeypad(numbers);
+        String answer1 = keypad.pressKeypad(numbers1);
+        String answer2 = keypad.pressKeypad(numbers2);
+        String answer3 = keypad.pressKeypad(numbers3);
 
         //then
-        assertThat(answer).isEqualTo("RRR");
+        assertThat(answer1).isEqualTo("RRR");
+        assertThat(answer2).isEqualTo("RR");
+        assertThat(answer3).isEqualTo("R");
     }
 
 }
