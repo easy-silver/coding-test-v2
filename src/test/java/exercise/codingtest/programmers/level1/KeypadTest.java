@@ -30,4 +30,18 @@ class KeypadTest {
         assertThat(answer3).isEqualTo("L");
     }
 
+    @DisplayName("3, 6, 9는 무조건 오른손 사용")
+    @Test
+    void must_right() {
+        //given
+        int[] numbers = {3, 6, 9};
+
+        //when
+        Keypad keypad = new Keypad();
+        String answer = keypad.pressKeypad(numbers);
+
+        //then
+        assertThat(answer).isEqualTo("RRR");
+    }
+
 }
