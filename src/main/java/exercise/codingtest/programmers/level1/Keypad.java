@@ -7,14 +7,14 @@ package exercise.codingtest.programmers.level1;
 public class Keypad {
 
     public String pressKeypad(int[] numbers) {
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
 
         for (int number : numbers) {
             if (number == 1 || number == 4 || number == 7) {
-                answer += "L";
+                answer.append("L");
             }
         }
 
-        return answer;
+        return answer.toString();
     }
 }
