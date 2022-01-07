@@ -50,4 +50,18 @@ class KeypadTest {
         assertThat(answer3).isEqualTo("R");
     }
 
+    @DisplayName("2, 5, 8은 현재 위치와의 거리를 계산하여 선택한다.")
+    @Test
+    void choice_center() {
+        //given
+        int[] number = {2, 5, 8};
+
+        //when
+        Keypad keypad = new Keypad();
+        String answer = keypad.pressKeypad(number);
+
+        //then
+        assertThat(answer).isEqualTo("RRR");
+    }
+
 }
