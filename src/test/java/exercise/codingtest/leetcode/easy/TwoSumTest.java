@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class TwoSumTest {
 
     @Test
-    void toSum1() {
+    void twoSum1() {
         //given
         int[] nums = new int[]{2,7,11,15};
         int target = 9;
@@ -21,7 +21,7 @@ class TwoSumTest {
     }
 
     @Test
-    void toSum2() {
+    void twoSum2() {
         //given
         int[] nums = new int[]{3,3};
         int target = 6;
@@ -35,7 +35,7 @@ class TwoSumTest {
     }
 
     @Test
-    void toSum3() {
+    void twoSum3() {
         //given
         int[] nums = new int[]{3,2,4};
         int target = 6;
@@ -49,7 +49,7 @@ class TwoSumTest {
     }
 
     @Test
-    void toSum4() {
+    void twoSum4() {
         //given
         int[] nums = new int[]{0, 4, 3, 0};
         int target = 0;
@@ -63,7 +63,7 @@ class TwoSumTest {
     }
 
     @Test
-    void toSum5() {
+    void twoSum5() {
         //given
         int[] nums = new int[]{-1, -2, -3, -4, -5};
         int target = -8;
