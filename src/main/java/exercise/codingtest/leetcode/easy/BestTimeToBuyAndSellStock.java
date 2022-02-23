@@ -7,26 +7,33 @@ public class BestTimeToBuyAndSellStock {
 
     public int maxProfit(int[] prices) {
 
-        int max = 0;
+        //첫 날 가격을 최소 가격으로 시작한다.
+        int minPrice = prices[0];
+        //최대 이익
+        int maxProfit = 0;
 
-        //배열의 마지막 인덱스부터 배열의 두 번째 인덱스까지 반복문을 실행한다.
-        for (int i = prices.length - 1; i > 0; i--) {
-            //마지막 값을 변수에 담는다.
-            int sellPrice = prices[i];
-            //현재 인덱스의 이전 인덱스부터 배열의 첫 번째 인덱스까지 반복문을 실행한다.
-            for (int j = i - 1; j >= 0; j--) {
-                //마지막 값과 현재 인덱스의 값을 뺀다.
-                int profit = sellPrice - prices[j];
+        //다음 날부터 배열의 길이만큼 반복한다.
+        for (int i = 1; i < prices.length; i++) {
+            //현재 인덱스의 값이 오늘의 가격
+            int currentPrice = prices[i];
 
-                //Max 값보다 크다면 뺄셈의 결과를 Max 값에 넣는다.
-                if (profit > max) {
-                    max = profit;
+            //오늘의 가격이 최소 가격보다 적다면 최소 가격을 오늘 가격으로 변경한다.
+            if (currentPrice < minPrice) {
+                minPrice = currentPrice;
+
+            //오늘 가격이 최소 가격보다 적지 않다면 현재 가격에 팔았을 때의 가격을 계산한다.
+            } else {
+                int currentProfit = currentPrice - minPrice;
+
+                //오늘의 이윤이 최대 이윤보다 크다면 최대 이윤 값을 변경한다.
+                if (currentProfit > maxProfit) {
+                    maxProfit = currentProfit;
                 }
             }
         }
 
-        //MAX 값을 반환한다.
-        return max;
+        //최대 값을 반환한다.
+        return maxProfit;
     }
 
 }
