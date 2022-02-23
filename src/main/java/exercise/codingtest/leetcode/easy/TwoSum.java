@@ -1,5 +1,8 @@
 package exercise.codingtest.leetcode.easy;
 
+/**
+ * Easy - #1
+ */
 public class TwoSum {
 
     public static int[] twoSum(int[] nums, int target) {
