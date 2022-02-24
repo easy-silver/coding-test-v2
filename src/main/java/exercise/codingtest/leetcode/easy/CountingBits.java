@@ -11,9 +11,7 @@ public class CountingBits {
         result[0] = 0;
 
         for (int i = 1; i <= n; i++) {
-            String binaryString = Integer.toBinaryString(i);
-            String stringOfOne = binaryString.replace("0", "");
-            result[i] = stringOfOne.length();
+            result[i] = Integer.bitCount(i);
         }
 
         return result;
