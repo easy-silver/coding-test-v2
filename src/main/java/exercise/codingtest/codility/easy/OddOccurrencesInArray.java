@@ -1,22 +1,29 @@
 package exercise.codingtest.codility.easy;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OddOccurrencesInArray {
 
     public int solution(int[] A) {
-        Set<Integer> set = new HashSet<>();
+        Map<Integer, Integer> map = new HashMap<>();
 
-        for (int number : A) {
-            if (set.contains(number)) {
-                set.remove(number);
+        for (Integer number : A) {
+            Integer count = map.get(number);
+            if (count == null) {
+                map.put(number, 1);
 
             } else {
-                set.add(number);
+                map.put(number, ++count);
             }
         }
 
-        return set.stream().findAny().get();
+        for (Integer number : map.keySet()) {
+            if (map.get(number) % 2 != 0) {
+                return number;
+            }
+        }
+
+        return -1;
     }
 }
